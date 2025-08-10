@@ -1,0 +1,355 @@
+/* ======================
+   VARIABLES (Ancient Color Palette)
+   ====================== */
+:root {
+    /* Traditional Manuscript Colors */
+    --parchment: #F5E7C1;
+    --aged-paper: #E8D9A0;
+    --vermillion: #9F2B00;  /* Sacred red used in manuscripts */
+    --gold-leaf: #C9A227;
+    --indigo-ink: #0A1A3F;
+    --ash-gray: #5D5D5D;     /* Vibhuti color */
+    
+    /* Dark Mode Colors */
+    --dark-bg: #0A0A0A;
+    --dark-text: #E0E0E0;
+}
+
+/* ======================
+   BASE STYLES
+   ====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kalam', cursive; /* Handwritten feel */
+    background-color: var(--parchment);
+    color: var(--indigo-ink);
+    background-image: url('assets/old-paper-texture.jpg');
+    background-attachment: fixed;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Ancient paper texture overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('assets/paper-texture-overlay.png');
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .story-card,
+.dark-mode .shloka-box,
+.dark-mode .category-card {
+    background-color: rgba(30, 30, 30, 0.8);
+}
+
+/* ======================
+   TYPOGRAPHY (Ancient Style)
+   ====================== */
+.sanskrit-title {
+    font-family: 'Tiro Devanagari Sanskrit', serif;
+    font-size: 2.5rem;
+    color: var(--vermillion);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.sanskrit-text {
+    font-family: 'Tiro Devanagari Sanskrit', serif;
+    font-size: 1.8rem;
+    color: var(--vermillion);
+    line-height: 1.6;
+}
+
+.hindi-text {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--vermillion);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--gold-leaf);
+}
+
+.subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--indigo-ink);
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.dark-mode .subtitle {
+    color: var(--dark-text);
+}
+
+.translation {
+    font-style: italic;
+    color: var(--ash-gray);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* ======================
+   NAVIGATION (Traditional Style)
+   ====================== */
+.sanskrit-nav {
+    background-color: var(--vermillion);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.sanskrit-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+.sanskrit-nav a {
+    color: var(--parchment);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.sanskrit-nav a:hover {
+    transform: translateY(-3px);
+}
+
+.devanagari {
+    font-family: 'Tiro Devanagari Sanskrit', serif;
+    font-size: 1.2rem;
+}
+
+.eng {
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--parchment);
+    margin-left: auto;
+}
+
+/* ======================
+   HEADER (Manuscript Style)
+   ====================== */
+.sanskrit-header {
+    text-align: center;
+    padding: 2rem 5%;
+    position: relative;
+}
+
+.title-container {
+    margin: 2rem 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fefefe;
+  color: #222;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 2rem auto 3rem auto;
+  padding: 0 1rem;
+  flex-grow: 1;
+}
+
+/* Page Title */
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid #ff6f61;
+  padding-bottom: 0.5rem;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.1);
+  padding: 2rem 2.5rem;
+  margin-bottom: 2.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(255, 111, 97, 0.3);
+}
+
+.card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #ff6f61;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Developer card specifics */
+.dev-intro p strong {
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.profile-pic {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 1rem auto;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ff6f61;
+  box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #eee;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+footer .mantra {
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.7rem;
+  letter-spacing: 1.5px;
+  color: #ff6f61;
+}
+
+footer .social-links {
+  margin-bottom: 0.7rem;
+}
+
+footer .social-links a {
+  margin: 0 0.4rem;
+  display: inline-block;
+}
+
+footer .social-links img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  width: 24px;
+  height: 24px;
+}
+
+footer .social-links a:hover img {
+  filter: grayscale(0);
+}
+
+footer p.copyright {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: #aaa;
+}
+
+/* Back to Top Button */
+#back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #ff6f61;
+  border: none;
+  border-radius: 50%;
+  padding: 0.6rem 0.75rem;
+  font-size: 1.3rem;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 111, 97, 0.5);
+  display: none; /* hidden initially */
+  z-index: 1000;
+}
+
+#back-to-top:hover {
+  background: #e85b4b;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .sanskrit-nav ul {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+    margin: 1rem auto 2rem auto;
+  }
+
+  .card {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+}

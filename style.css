@@ -1,0 +1,539 @@
+/* ======================
+   VARIABLES (Ancient Color Palette)
+   ====================== */
+:root {
+    /* Traditional Manuscript Colors */
+    --parchment: #F5E7C1;
+    --aged-paper: #E8D9A0;
+    --vermillion: #9F2B00;  /* Sacred red used in manuscripts */
+    --gold-leaf: #C9A227;
+    --indigo-ink: #0A1A3F;
+    --ash-gray: #5D5D5D;     /* Vibhuti color */
+    
+    /* Dark Mode Colors */
+    --dark-bg: #0A0A0A;
+    --dark-text: #E0E0E0;
+}
+
+/* ======================
+   BASE STYLES
+   ====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kalam', cursive; /* Handwritten feel */
+    background-color: var(--parchment);
+    color: var(--indigo-ink);
+    background-image: url('assets/old-paper-texture.jpg');
+    background-attachment: fixed;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Ancient paper texture overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('assets/paper-texture-overlay.png');
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-mode .story-card,
+.dark-mode .shloka-box,
+.dark-mode .category-card {
+    background-color: rgba(30, 30, 30, 0.8);
+}
+
+/* ======================
+   TYPOGRAPHY (Ancient Style)
+   ====================== */
+.sanskrit-title {
+    font-family: 'Tiro Devanagari Sanskrit', serif;
+    font-size: 2.5rem;
+    color: var(--vermillion);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.sanskrit-text {
+    font-family: 'Tiro Devanagari Sanskrit', serif;
+    font-size: 1.8rem;
+    color: var(--vermillion);
+    line-height: 1.6;
+}
+
+.hindi-text {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--vermillion);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--gold-leaf);
+}
+
+.subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--indigo-ink);
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.dark-mode .subtitle {
+    color: var(--dark-text);
+}
+
+.translation {
+    font-style: italic;
+    color: var(--ash-gray);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* ======================
+   NAVIGATION (Traditional Style)
+   ====================== */
+.sanskrit-nav {
+    background-color: var(--vermillion);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.sanskrit-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+.sanskrit-nav a {
+    color: var(--parchment);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.sanskrit-nav a:hover {
+    transform: translateY(-3px);
+}
+
+.devanagari {
+    font-family: 'Tiro Devanagari Sanskrit', serif;
+    font-size: 1.2rem;
+}
+
+.eng {
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--parchment);
+    margin-left: auto;
+}
+
+/* ======================
+   HEADER (Manuscript Style)
+   ====================== */
+.sanskrit-header {
+    text-align: center;
+    padding: 2rem 5%;
+    position: relative;
+}
+
+.title-container {
+    margin: 2rem 0;
+}
+
+/* Traditional border motifs */
+.border-motif {
+    height: 40px;
+    background-image: url('assets/mandala-border.png');
+    background-repeat: repeat-x;
+    opacity: 0.8;
+}
+
+/* Shloka/prayer boxes */
+.shloka-box {
+    background-color: var(--aged-paper);
+    border: 2px dashed var(--gold-leaf);
+    padding: 1.5rem;
+    margin: 2rem auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 800px;
+}
+
+/* ======================
+   STORY GRID (Ancient Card Style)
+   ====================== */
+.stories-grid {
+    padding: 4rem 5%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.story-card {
+    background: var(--aged-paper);
+    border: 1px solid var(--gold-leaf);
+    border-radius: 0; /* Square edges like manuscripts */
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ancient page curl effect */
+.story-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0,0,0,0.1), transparent);
+    pointer-events: none;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
+
+.story-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--gold-leaf);
+}
+
+.story-content {
+    padding: 1.5rem;
+}
+
+.story-content h3 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--vermillion);
+    padding-bottom: 0.5rem;
+    font-family: 'Tiro Devanagari Sanskrit', serif;
+    color: var(--indigo-ink);
+}
+
+.dark-mode .story-content h3 {
+    color: var(--dark-text);
+}
+
+.story-content p {
+    margin: 1rem 0;
+}
+
+.tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.tag {
+    background-color: var(--vermillion);
+    color: var(--parchment);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--vermillion);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dashed var(--vermillion);
+}
+
+/* ======================
+   CATEGORIES SECTION
+   ====================== */
+.categories {
+    padding: 3rem 5%;
+    background-color: rgba(233, 225, 195, 0.5);
+}
+
+.dark-mode .categories {
+    background-color: rgba(30, 30, 30, 0.5);
+}
+
+.category-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.category-card {
+    background: var(--aged-paper);
+    border: 1px solid var(--gold-leaf);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.category-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--indigo-ink);
+}
+
+.dark-mode .category-card h3 {
+    color: var(--dark-text);
+}
+
+/* ======================
+   FOOTER (Traditional Style)
+   ====================== */
+footer {
+    text-align: center;
+    padding: 3rem 5%;
+    background-color: var(--vermillion);
+    color: var(--parchment);
+    position: relative;
+}
+
+.mantra {
+    font-family: 'Tiro Devanagari Sanskrit', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.social-links img:hover {
+    opacity: 1;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* ======================
+   UTILITY CLASSES
+   ====================== */
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--vermillion);
+    color: var(--parchment);
+    border: none;
+    cursor: pointer;
+    display: none;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+#back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Loading Animation */
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(245, 231, 193, 0.9);
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.dark-mode .loader {
+    background-color: rgba(10, 10, 10, 0.9);
+}
+
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--vermillion);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ======================
+   RESPONSIVE DESIGN
+   ====================== */
+@media (max-width: 768px) {
+    .sanskrit-nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .sanskrit-nav a {
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+    
+    .devanagari, .eng {
+        font-size: 1rem;
+    }
+    
+    .grid-container, .category-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .sanskrit-text {
+        font-size: 1.5rem;
+    }
+}
+
+
+/*------Neelkanth------*/
+body {
+  margin: 0;
+  font-family: 'Gloock', serif;
+  background: #f9f5ef;
+  color: #3a2e25;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  background: #fff7e6;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border: 2px solid #d4b27c;
+  border-radius: 10px;
+}
+
+header h1 {
+  text-align: center;
+  color: #5e3c23;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px #e8d3b5;
+}
+
+.image-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.animated-img {
+  width: 300px;
+  max-width: 90%;
+  animation: float 6s ease-in-out infinite;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.story p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.story .lesson {
+  font-weight: bold;
+  font-size: 1.3rem;
+  background: #fff1d6;
+  padding: 1rem;
+  border-left: 5px solid #cc9933;
+}

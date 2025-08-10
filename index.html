@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShivKatha - Divine Stories of Mahadev</title>
+    <!-- Font Imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit&family=Noto+Sans+Devanagari&family=Kalam&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loader Animation -->
+    <div class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Traditional Navigation -->
+    <nav class="sanskrit-nav">
+        <ul>
+            <li><a href="#"><span class="devanagari">होम</span> <span class="eng">Home</span></a></li>
+            <li><a href="#stories"><span class="devanagari">कथाः</span> <span class="eng">Stories</span></a></li>
+            <li><a href="#categories"><span class="devanagari">वर्गाः</span> <span class="eng">Categories</span></a></li>
+            <li><a href="./about.html"><span class="devanagari">अस्माकम्</span> <span class="eng">About</span></a></li>
+            <li><button id="theme-toggle">🌙</button></li>
+        </ul>
+    </nav>
+
+    <!-- Ancient Manuscript Style Header -->
+    <header class="sanskrit-header">
+        <div class="border-motif top-motif"></div>
+        <div class="title-container">
+            <h1 class="sanskrit-title">शिवकथा</h1>
+            <p class="subtitle">Divine Stories of Lord Shiva</p>
+        </div>
+        <div class="shloka-box">
+            <p class="sanskrit-text">यत्र यत्र धूम्रजटिलश्चन्द्रशेखरो विभुः<br>
+            तत्र तत्र सर्वसिद्धिर्भवति भो भूतये</p>
+            <p class="translation">"Wherever the smoke-haired, moon-crested Lord Shiva resides,<br>
+            there all accomplishments manifest for worldly welfare"</p>
+        </div>
+        <div class="border-motif bottom-motif"></div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Stories Grid Section -->
+        <section id="stories" class="stories-grid">
+            
+            <h2 class="section-title">Sacred Stories</h2>
+            <div class="grid-container">
+                <!-- Story cards will be dynamically inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="categories">
+            <h2 class="section-title">Explore Categories</h2>
+            <div class="category-cards">
+                <div class="category-card">
+                    <img src="/images/tandav.jpeg" alt="Destruction">
+                    <h3>Destruction & Creation</h3>
+                </div>
+                <div class="category-card">
+                    <img src="/images/shivji.jpeg" alt="Leelas">
+                    <h3>Divine Leelas</h3>
+                </div>
+                <div class="category-card">
+                    <img src="/images/bhakt.jpeg" alt="Devotion">
+                    <h3>Tales of Devotion</h3>
+                </div>
+                <div class="category-card">
+                    <img src="/images/guru.jpeg" alt="Guru">
+                    <h3>Adiguru Shiva</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sacred Shloka Box -->
+        <div class="shloka-box">
+            <p class="sanskrit-text">ॐ नमः शिवाय</p>
+            <p class="translation">"Om Namah Shivaya"</p>
+        </div>
+    </main>
+
+    <!-- Traditional Footer -->
+    <footer>
+        <p class="mantra">Om Namah Shivaya</p>
+        <div class="social-links">
+            <a href="mailto:&#112;&#97;&#119;&#97;&#114;&#104;&#97;&#114;&#115;&#104;&#97;&#50;&#50;&#49;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"><img src="https://img.icons8.com/ios-filled/24/7a7a7a/gmail.png" alt="Gmail"></a>
+            <a href="https://github.com/ShivatimikaPawar"><img src="https://img.icons8.com/ios-glyphs/24/7a7a7a/github.png" alt="Github"></a>
+            <a href="https://www.linkedin.com/in/shivatimika-pawar-02551a276/"><img src="https://img.icons8.com/ios-filled/24/7a7a7a/linkedin.png" alt="LinkedIn"></a>
+        </div>
+        <p class="copyright">&copy; 2023 DivyaGatha. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Go to top">↑</button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
